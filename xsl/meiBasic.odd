@@ -61,7 +61,7 @@
         <!--<moduleRef key="MEI.fingering"/>-->
         <!--<moduleRef key="MEI.frbr"/>-->
         <!--<moduleRef key="MEI.gestural"/>-->
-        <moduleRef key="MEI.harmony"/>
+        <!--<moduleRef key="MEI.harmony"/>-->
         <moduleRef key="MEI.header"/>
         <moduleRef key="MEI.lyrics"/>
         <!--<moduleRef key="MEI.mensural"/>-->
@@ -74,17 +74,17 @@
         <!--<moduleRef key="MEI.tablature"/>-->
         <!--<moduleRef key="MEI.text"/>-->
         <!--<moduleRef key="MEI.usersymbols"/>-->
-        <moduleRef key="MEI.visual"/>
+        <!--<moduleRef key="MEI.visual"/>-->
 
         <!-- Include SVG -->
-        <moduleRef url="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/svg11.rng"
+        <!--<moduleRef url="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/svg11.rng"
           prefix="svg_">
           <content>
             <rng:define name="mei_model.graphicLike" combine="choice">
               <rng:ref name="svg_svg"/>
             </rng:define>
           </content>
-        </moduleRef>
+        </moduleRef>-->
 
         <!-- ******************************************************************** -->
         <!-- CONFORMING CHANGES -->
@@ -124,31 +124,84 @@
           </classes>
         </classSpec>
 
+        <!-- Remove respStmt from model.respLike -->
+        <elementSpec ident="respStmt" module="MEI.shared" mode="replace">
+          <desc>(responsibility statement) – Names one or more individuals, groups, or in rare
+            cases, mechanical processes, responsible for creation, realization, production, or
+            distribution of the intellectual or artistic content, where the specialized elements for
+            authors, editors, etc. do not suffice or do not apply.</desc>
+          <classes>
+            <memberOf key="att.common"/>
+            <memberOf key="att.bibl"/>
+            <memberOf key="att.facsimile"/>
+            <memberOf key="model.pubStmtPart"/>
+            <!--<memberOf key="model.respLike"/>-->
+          </classes>
+          <content>
+            <rng:choice>
+              <rng:zeroOrMore>
+                <rng:choice>
+                  <rng:ref name="name"/>
+                  <rng:ref name="resp"/>
+                  <rng:ref name="model.nameLike.agent"/>
+                </rng:choice>
+              </rng:zeroOrMore>
+            </rng:choice>
+          </content>
+          <constraintSpec ident="check_respStmt" scheme="isoschematron">
+            <constraint>
+              <sch:rule
+                context="mei:*[local-name()='titleStmt' or local-name()='pubStmt' or 
+                local-name()='seriesStmt']/mei:respStmt[mei:corpName or mei:name or mei:persName]">
+                <sch:assert role="warning" test="mei:resp or (count(mei:*[@role]) = count(mei:*))"
+                  >If at least one resp element isn't present, all name-like elements should have a
+                  @role attribute.</sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          <remarks>
+            <p>This element is modelled on an element in the Text Encoding Initiative (TEI)
+              standard.</p>
+          </remarks>
+        </elementSpec>
+
         <!-- Remove elements -->
         <elementSpec ident="ambitus" module="MEI.shared" mode="delete"/>
+        <elementSpec ident="arpeg" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="barLine" module="MEI.shared" mode="delete"/>
+        <elementSpec ident="beamSpan" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="beatRpt" module="MEI.cmn" mode="delete"/>
+        <elementSpec ident="bend" module="MEI.cmn" mode="delete"/>
+        <elementSpec ident="breath" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="bTrem" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="caesura" module="MEI.shared" mode="delete"/>
-        <elementSpec ident="chordTable" module="MEI.harmony" mode="delete"/>
         <elementSpec ident="clefGrp" module="MEI.shared" mode="delete"/>
         <elementSpec ident="custos" module="MEI.shared" mode="delete"/>
         <elementSpec ident="div" module="MEI.shared" mode="delete"/>
+        <elementSpec ident="gliss" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="grpSym" module="MEI.shared" mode="delete"/>
         <elementSpec ident="halfmRpt" module="MEI.cmn" mode="delete"/>
+        <elementSpec ident="harpPedal" module="MEI.cmn" mode="delete"/>
+        <elementSpec ident="ligatureSpan" module="MEI.cmn" mode="delete"/>
+        <elementSpec ident="lv" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="mRpt" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="mRpt2" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="multiRest" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="multiRpt" module="MEI.cmn" mode="delete"/>
+        <elementSpec ident="ornam" module="MEI.shared" mode="delete"/>
         <elementSpec ident="ossia" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="pad" module="MEI.shared" mode="delete"/>
         <elementSpec ident="part" module="MEI.shared" mode="delete"/>
         <elementSpec ident="parts" module="MEI.shared" mode="delete"/>
+        <elementSpec ident="pedal" module="MEI.cmn" mode="delete"/>
+        <elementSpec ident="phrase" module="MEI.shared" mode="delete"/>
+        <elementSpec ident="reh" module="MEI.cmn" mode="delete"/>
         <elementSpec ident="relation" module="MEI.shared" mode="delete"/>
         <elementSpec ident="relationList" module="MEI.shared" mode="delete"/>
         <elementSpec ident="tupletSpan" module="MEI.cmn" mode="delete"/>
 
         <!-- Restrict content of body -->
+        <!-- Allow only a single mdiv -->
         <elementSpec ident="body" module="MEI.shared" mode="replace">
           <desc>Contains the whole of a single musical text, excluding any front or back
             matter.</desc>
@@ -170,7 +223,7 @@
           </remarks>
         </elementSpec>
 
-        <!-- Restrict content of mdiv -->
+        <!-- Disallow self-nesting of mdiv -->
         <elementSpec ident="mdiv" module="MEI.shared" mode="replace">
           <desc>(musical division) – Contains a subdivision of the body of a musical text.</desc>
           <classes>
@@ -223,6 +276,12 @@
 
         <!-- ******************************************************************** -->
         <!-- NON-CONFORMING CHANGES -->
+
+
+        <!-- ******************************************************************** -->
+        <!-- CHANGES CARRIED OVER FROM latest_DEV.odd -->
+
+
 
 
       </schemaSpec>

@@ -1,0 +1,127 @@
+<!DOCTYPE html
+  PUBLIC "html">
+<html lang="en">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <title>MEI Basic Documentation</title>
+      <link rel="stylesheet" href="resources/css/spectre/spectre.min.css">
+      <link rel="stylesheet" href="resources/css/spectre/spectre-icons.min.css">
+      <link rel="stylesheet" href="https://picturepan2.github.io/spectre/css/docs.css">
+      <link rel="stylesheet" href="resources/css/mei-basic-doc.css"><script src="resources/js/ace/ace.js" type="text/javascript" charset="utf-8"></script><script src="resources/js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script><script src="resources/js/verovio-toolkit.js" type="text/javascript" charset="utf-8"></script><script>
+                            
+                            /*set up Verovio*/
+                            var vrvToolkit = new verovio.toolkit();                            
+                            vrvToolkit.setOptions({
+                            pageHeight: 210,
+                            pageWidth: 420,
+                            ignoreLayout: 1,
+                            border: 0,
+                            scale: 35
+                            });
+                            
+                            /*function called to show the right code*/
+                            var showCode = function(which, id) {
+                            
+                                if(which === 'excerpt') {
+                                    document.getElementById(id + '_excerpt_link').classList.add('active');
+                                    document.getElementById(id + '_full_link').classList.remove('active');
+                                    document.getElementById(id + '_excerpt_container').classList.remove('hide');
+                                    document.getElementById(id + '_full_container').classList.add('hide');
+                                } else {
+                                    document.getElementById(id + '_excerpt_link').classList.remove('active');
+                                    document.getElementById(id + '_full_link').classList.add('active');
+                                    document.getElementById(id + '_excerpt_container').classList.add('hide');
+                                    document.getElementById(id + '_full_container').classList.remove('hide');
+                                }
+                            };
+                            
+                            var loadMEI = function(id,uri) {
+                            
+                                $.get('./samples/' + uri, function( fullMei ) {
+                                    var fullEditor = ace.edit(document.getElementById(id + '_full'));
+                                    fullEditor.setTheme("ace/theme/textmate");
+                                    fullEditor.getSession().setMode("ace/mode/xml");
+                                    fullEditor.setReadOnly(true);
+                                    fullEditor.session.setValue(fullMei);
+                                    
+                                    var svg = vrvToolkit.renderData(fullMei + '\n ', {});
+                                    
+                                    document.getElementById(id + '_verovio').innerHTML = svg;
+                                
+                                }, 'text');
+                            };
+                            
+                        </script></head>
+   <body>
+      <section class="section section-header bg-gray">
+         <section class="grid-header container grid-960">
+            <nav class="navbar">
+               <section class="navbar-section"><a href="#sidebar" class="btn btn-lg btn-link btn-action show-sm"><i class="icon icon-menu"></i></a><a href="index.html" class="navbar-brand mr-10">MEI Basic Documentation</a><a href="index.html" class="btn btn-link">Docs</a></section>
+               <section class="navbar-section"><a href="https://github.com/music-encoding/mei-basic-doc" target="_blank" class="btn btn-primary">GitHub</a></section>
+            </nav>
+         </section>
+      </section>
+      <section class="container grid-960">
+         <section class="columns">
+            <div id="sidebar" class="docs-sidebar column col-3 col-sm-12">
+               <ul class="docs-nav nav">
+                  <li class="nav-item"><a href="index.html"><strong>Introduction</strong></a></li>
+                  <li class="nav-item"><a href="events.html">Basics</a><ul class="nav">
+                        <li class="nav-item"><a href="events.html">Notes, Chords and Rests</a></li>
+                        <li class="nav-item"><a href="controlEvents.html">Slurs, Dynamics and other "Control Events"</a></li>
+                        <li class="nav-item"><a href="artic.html">Articulations</a></li>
+                     </ul>
+                  </li>
+                  <li class="nav-item"><a href="scoreDef.html">Score Organization</a><ul class="nav">
+                        <li class="nav-item"><a href="scoreDef.html">Definition of Score Setup</a></li>
+                        <li class="nav-item"><a href="layers.html">Layers and Spaces</a></li>
+                        <li class="nav-item"><a href="repetition.html">Repetition and Endings</a></li>
+                     </ul>
+                  </li>
+                  <li class="nav-item"><a href="metadata.html">Metadata</a></li>
+                  <li class="nav-item"><a href="interactive.html">Interactive Example</a></li>
+               </ul>
+            </div>
+            <div class="docs-content column col-9 col-sm-12">
+               <section id="grid" class="container">
+                  <header class="text-center">
+                     <h3>Introduction</h3>
+                  </header>
+                  
+                  
+                  <p part="N">
+                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                     dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                     nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                     quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
+                     nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
+                     justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
+                     Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
+                     porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in,
+                     viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.
+                     Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper
+                     ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum
+                     rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam
+                     nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+                     tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
+                     Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit
+                     amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales,
+                     augue velit cursus nunc, 
+                     
+                  </p>
+                  
+               </section>
+               <section class="container">
+                  <div class="divider"></div>
+                  <ul class="pagination">
+                     <li class="page-item page-next"><a href="events.html">
+                           <p class="page-item-subtitle">Next</p>
+                           <h4 class="page-item-title">Notes, Chords and Rests</h4></a></li>
+                  </ul>
+               </section>
+            </div>
+         </section>
+      </section>
+   </body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>MEI Basic Documentation</title>
+	<link rel="stylesheet" href="resources/css/spectre/spectre.min.css" />
+	<link rel="stylesheet" href="resources/css/spectre/spectre-icons.min.css" />
+	<link rel="stylesheet" href="https://picturepan2.github.io/spectre/css/docs.css" />
+	
+</head>
+<body>
+	<section class="section section-header bg-gray">
+		<section class="grid-header container grid-960">
+			<nav class="navbar">
+				<section class="navbar-section">
+					<a href="#sidebar" class="btn btn-lg btn-link btn-action show-sm"><i class="icon icon-menu"></i></a>
+					<a href="index.html" class="navbar-brand mr-10">MEI Basic Documentation</a>
+					<a href="index.html" class="btn btn-link">Docs</a>
+				</section>
+				<section class="navbar-section">
+					<a href="https://github.com/music-encoding/mei-basic-doc" target="_blank" class="btn btn-primary">GitHub</a>
+				</section>
+			</nav>
+		</section>
+	</section>
+	
+	<section class="container grid-960">
+		<section class="columns">
+			<div id="sidebar" class="docs-sidebar column col-3 col-sm-12">
+				<ul class="docs-nav nav">
+					<li class="nav-item">
+						<a href="index.html#introduction">Introduction</a>
+					</li>
+					<li class="nav-item">
+						<a href="layout.html"><strong>Basics</strong></a>
+						<ul class="nav">
+							<li class="nav-item">
+								<a href="layout.html#grid">Notes, Chords and Rests</a>
+							</li>
+							<li class="nav-item">
+								<a href="layout.html#responsive">Slurs, Dynamics and other "Control Events"</a>
+							</li>
+							<li class="nav-item">
+								<a href="layout.html#navbar">Articulations</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a href="components.html">Score Organization</a><!-- incl. repeats and endings / layers and space -->
+					</li>
+					<li class="nav-item">
+						<a href="utilities.html">Metadata</a>
+					</li>
+					<li class="nav-item">
+						<a href="experimentals.html">Interactive Example</a>
+					</li>
+				</ul>
+			</div>
+			<div class="docs-content column col-9 col-sm-12">
+				<section id="grid" class="container">
+					<header class="text-center"><h3>Notes, Chords and Rests</h3></header>
+					<section class="notes">
+						<p><strong>Layout</strong> includes flexbox based responsive grid system with 12 columns. </p>
+					</section>
+					<section class="notes">
+						<p>Add the <code>columns</code> class to a container with the <code>container</code> class. And add any element you want with the <code>column</code> class inside the container. These columns will take up the space equally. You can specific the width of each column by adding class <code>col-[1-12]</code>.</p>
+						<p>And you can add the <code>col-gapless</code> class to have gapless columns.</p>
+					</section>
+				</section>
+				<section class="container">
+					<div class="divider"></div>
+					<ul class="pagination">
+						<li class="page-item page-prev">
+							<a href="elements.html">
+								<p class="page-item-subtitle">Previous</p>
+								<h4 class="page-item-title">Introduction</h4>
+							</a>
+						</li>
+						<li class="page-item page-next">
+							<a href="components.html">
+								<p class="page-item-subtitle">Next</p>
+								<h4 class="page-item-title">Slurs, Dynamics and other "Control Events"</h4>
+							</a>
+						</li>
+					</ul>
+				</section>
+			</div>
+			
+			
+			
+			
+		</section>
+	</section><!--
+	<h1>Tabs</h1>
+	<ul class="tab tab-block">
+		<li class="tab-item active">
+			<a href="#">Introduction</a>
+		</li>
+		<li class="tab-item">
+			<a href="#" class="active">Notes, Chords and Rests</a>
+		</li>
+		<li class="tab-item">
+			<a href="#">Score Organization</a>
+		</li>
+		<li class="tab-item">
+			<a href="#">Layers and Space</a>
+		</li>
+		<li class="tab-item">
+			<a href="#">Repeats and Endings</a>
+		</li>
+		<li class="tab-item">
+			<a href="#">Slurs, Dynamics and other "Control Events"</a>
+		</li>
+		<li class="tab-item">
+			<a href="#">Articulations</a>
+		</li>
+		<li class="tab-item">
+			<a href="#">Metadata</a>
+		</li>
+		<li class="tab-item">
+			<a href="#">Interactive Example</a>
+		</li>
+	</ul>
+	<h1>Menus</h1>
+	<ul class="menu">
+		<!-\- menu header text -\->
+		<li class="divider" data-content="LINKS">
+		</li>
+		<!-\- menu item -\->
+		<li class="menu-item">
+			<a href="#">Introduction</a>
+		</li>
+		<li class="menu-item">
+			<a href="#">Score Organization</a>
+		</li>
+		<li class="menu-item">
+			<a href="#">Layers and Space</a>
+		</li>
+		<li class="menu-item">
+			<a href="#">Repeats and Endings</a>
+		</li>
+		<li class="menu-item">
+			<a href="#">Slurs, Dynamics and other "Control Events"</a>
+		</li>
+		<li class="menu-item">
+			<a href="#">Articulations</a>
+		</li>
+		<li class="menu-item">
+			<a href="#">Metadata</a>
+		</li>
+		<li class="menu-item">
+			<a href="#">Interactive Example</a>
+		</li>
+	</ul>
+	<h1>Dropdown Menu</h1>
+	<div class="dropdown">
+		<a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+			dropdown menu <i class="icon icon-caret"></i>
+		</a>
+		<!-\- menu component -\->
+		<ul class="menu">
+			<!-\- menu header text -\->
+			<li class="divider" data-content="LINKS">
+			</li>
+			<!-\- menu item -\->
+			<li class="menu-item">
+				<a href="#">Introduction</a>
+			</li>
+			<li class="menu-item">
+				<a href="#">Score Organization</a>
+			</li>
+			<li class="menu-item">
+				<a href="#">Layers and Space</a>
+			</li>
+			<li class="menu-item">
+				<a href="#">Repeats and Endings</a>
+			</li>
+			<li class="menu-item">
+				<a href="#">Slurs, Dynamics and other "Control Events"</a>
+			</li>
+			<li class="menu-item">
+				<a href="#">Articulations</a>
+			</li>
+			<li class="menu-item">
+				<a href="#">Metadata</a>
+			</li>
+			<li class="menu-item">
+				<a href="#">Interactive Example</a>
+			</li>
+		</ul>
+		<h1>Pagination</h1>
+		<ul class="pagination">
+			<li class="page-item">
+				<a href="#" disabled tabindex="-1">Previous</a>
+			</li>
+			<li class="page-item active">
+				<a href="#">1</a>
+			</li>
+			<li class="page-item">
+				<a href="#">2</a>
+			</li>
+			<li class="page-item">
+				<a href="#">3</a>
+			</li>
+			<li class="page-item">
+				<span>...</span>
+			</li>
+			<li class="page-item">
+				<a href="#">12</a>
+			</li>
+			<li class="page-item">
+				<a href="#">Next</a>
+			</li>
+		</ul>
+		<h2>Internal pagination</h2>
+		<ul class="pagination">
+			<li class="page-item page-prev">
+				<a href="#">
+					<p class="page-item-subtitle">Previous</p>
+					<h3 class="page-item-title">Getting started</h3>
+				</a>
+			</li>
+			<li class="page-item page-next">
+				<a href="#">
+					<p class="page-item-subtitle">Next</p>
+					<h3 class="page-item-title">Layout</h3>
+				</a>
+			</li>
+		</ul>
+		<h1>Navs</h1>
+		<ul class="nav">
+			<li class="nav-item">
+				<a href="#">Elements</a>
+			</li>
+			<li class="nav-item active">
+				<a href="#">Layout</a>
+				<ul class="nav">
+					<li class="nav-item">
+						<a href="#">Flexbox grid</a>
+					</li>
+					<li class="nav-item">
+						<a href="#">Responsive</a>
+					</li>
+					<li class="nav-item">
+						<a href="#">Navbar</a>
+					</li>
+					<li class="nav-item">
+						<a href="#">Empty states</a>
+					</li>
+				</ul>
+			</li>
+			<li class="nav-item">
+				<a href="#">Components</a>
+			</li>
+			<li class="nav-item">
+				<a href="#">Utilities</a>
+			</li>
+		</ul>
+	</div>-->
+</body>
+</html>

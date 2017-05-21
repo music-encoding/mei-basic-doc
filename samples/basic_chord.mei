@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="3.0.0">
+<meiHead>
+    <fileDesc>
+        <titleStmt>
+            <title>Fermata attribute example</title>
+        </titleStmt>
+        <pubStmt/>
+        <seriesStmt>
+            <title>Verovio feature examples</title>
+        </seriesStmt>
+    </fileDesc>
+</meiHead>
+    <music>
+        <body>
+            <mdiv>
+                <score>
+                    <scoreDef key.sig="0" meter.count="4" meter.unit="4" meter.sym="common">
+                        <staffGrp>
+                            <staffDef clef.shape="G" clef.line="2" n="1" lines="5" />
+                        </staffGrp>
+                    </scoreDef>
+                    <section>
+                        <measure n="1">
+                            <staff n="1">
+                                <layer n="1">
+                                    <chord dur="4" dots="1">
+                                        <note oct="4" pname="c" />
+                                        <note oct="4" pname="e" />
+                                        <note oct="4" pname="g" />
+                                    </chord>
+                                </layer>
+                            </staff>
+                        </measure>
+                    </section>
+                </score>
+            </mdiv>
+        </body>
+    </music>
+</mei>

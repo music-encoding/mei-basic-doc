@@ -21,8 +21,7 @@
 <TEI xmlns:rng="http://relaxng.org/ns/structure/1.0"
   xmlns:sch="http://purl.oclc.org/dsdl/schematron"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns="http://www.tei-c.org/ns/1.0"
-  xmlns:math="http://exslt.org/math"
-  xmlns:mei="http://www.music-encoding.org/ns/mei">
+  xmlns:math="http://exslt.org/math" xmlns:mei="http://www.music-encoding.org/ns/mei">
   <teiHeader>
     <fileDesc>
       <titleStmt>
@@ -51,149 +50,141 @@
       <divGen type="toc"/>
       <div xml:id="index" type="chapter">
         <head>Introduction</head>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, 
-        </p>
+        <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+          dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
+          sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
+          vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+          Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+          elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
+          consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat
+          a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean
+          imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget
+          dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
+          libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus
+          pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae
+          sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros
+          faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis
+          magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, </p>
       </div>
       <div>
         <head>Basics</head>
         <div xml:id="events" type="chapter">
           <head>Notes, Chords and Rests</head>
-          <p>
-            In MEI, notes, chords and rests are often referred to as <soCalled>events</soCalled>. These events
-            are the most basic and important part of MEI.
-          </p>
+          <p> In MEI, notes, chords and rests are often referred to as <soCalled>events</soCalled>.
+            These events are the most basic and important part of MEI. </p>
           <div>
             <head>Notes</head>
-            <p>
-              This is how you encode a single note in MEI:
-            </p>
+            <p> This is how you encode a single note in MEI: </p>
             <eg>
               <notatedMusic>
                 <ptr target="basic_note.mei"/>
                 <desc type="xpath">//*:note</desc>
               </notatedMusic>
             </eg>
-            <p>
-              As you can see, the most relevant information is split into three different attributes for easier processing. 
-              Every note requires to have a pitch name. The <att>pname</att> attribute may hold the following values: 
-              <emph>c</emph>, <emph>d</emph>, <emph>e</emph>, <emph>f</emph>, <emph>g</emph>, <emph>a</emph>, <emph>b</emph>. 
-            </p>
-            <p>
-              The second part of the information about pitch is stored in the <att>oct</att> attribute. Octaves are given 
-              according to the Acoustical Society of America representation, which means the middle C on a piano will have 
-              a value of <emph>4</emph>, the octave above will have a <emph>5</emph>, the one below a <emph>3</emph> and so on.
-            </p>
-            <p>
-              Each note needs to have a duration being set. This is done with the <att>dur</att> attribute. Values are integers
-              that match the note's duration, i.e. a quarter note will use a value of <emph>4</emph>, an eigth note will use 
-              <emph>8</emph> and so forth. In case of a dotted note, the <emph>optional</emph> <att>dots</att> attribute is used
-              to indicate the number of dots. 
-            </p>
+            <p> As you can see, the most relevant information is split into three different
+              attributes for easier processing. Every note requires to have a pitch name. The
+                <att>pname</att> attribute may hold the following values: <emph>c</emph>,
+                <emph>d</emph>, <emph>e</emph>, <emph>f</emph>, <emph>g</emph>, <emph>a</emph>,
+                <emph>b</emph>. </p>
+            <p> The second part of the information about pitch is stored in the <att>oct</att>
+              attribute. Octaves are given according to the Acoustical Society of America
+              representation, which means the middle C on a piano will have a value of
+                <emph>4</emph>, the octave above will have a <emph>5</emph>, the one below a
+                <emph>3</emph> and so on. </p>
+            <p> Each note needs to have a duration being set. This is done with the <att>dur</att>
+              attribute. Values are integers that match the note's duration, i.e. a quarter note
+              will use a value of <emph>4</emph>, an eigth note will use <emph>8</emph> and so
+              forth. In case of a dotted note, the <emph>optional</emph>
+              <att>dots</att> attribute is used to indicate the number of dots. </p>
           </div>
           <div>
             <head>Chords</head>
-            <p>
-              In MEI Basic, chords strictly share a duration, that is, all notes need to have the same duration. Accordingly, 
-              the <att>dur</att> (and <att>dots</att>, if necessary) attribute(s) are a property of the chord, but not the
-              individual notes anymore.  
-            </p>
+            <p> In MEI Basic, chords strictly share a duration, that is, all notes need to have the
+              same duration. Accordingly, the <att>dur</att> (and <att>dots</att>, if necessary)
+              attribute(s) are a property of the chord, but not the individual notes anymore. </p>
             <eg>
               <notatedMusic>
                 <ptr target="basic_chord.mei"/>
                 <desc type="xpath">//*:chord</desc>
               </notatedMusic>
             </eg>
-            <p>
-              MEI Basic makes no assumption on the order of child notes in a chord – you can start either from the highest 
-              or lowest pitch, or mix them as you like. 
-            </p>
+            <p> MEI Basic makes no assumption on the order of child notes in a chord – you can start
+              either from the highest or lowest pitch, or mix them as you like. </p>
           </div>
           <div>
             <head>Rests</head>
-            <p>
-              The duration of rests is specified the same way as for notes or chords, that is, using <att>dur</att>, and, 
-              if necessary, <att>dots</att>.
-            </p>
+            <p> The duration of rests is specified the same way as for notes or chords, that is,
+              using <att>dur</att>, and, if necessary, <att>dots</att>. </p>
             <eg>
               <notatedMusic>
                 <ptr target="basic_rest.mei"/>
                 <desc type="xpath">//*:rest</desc>
               </notatedMusic>
             </eg>
-            <p>
-              Do I need to say more?
-            </p>
+            <p> Do I need to say more? </p>
           </div>
         </div>
         <div xml:id="controlEvents" type="chapter">
           <head>Slurs, Dynamics and other "Control Events"</head>
-          <p>
-            With <soCalled>events</soCalled>, MEI encodes the individual notes etc. that compose a score. However, 
-            music notation has various "features" that tell us something about those notes, that control how we
-            need to understand them. Those features are called <soCalled>control events</soCalled> in MEI. 
-          </p>
+          <p> With <soCalled>events</soCalled>, MEI encodes the individual notes etc. that compose a
+            score. However, music notation has various "features" that tell us something about those
+            notes, that control how we need to understand them. Those features are called
+              <soCalled>control events</soCalled> in MEI. </p>
           <div>
             <head>Slurs and Ties</head>
-            <p>
-              One of the most prominent and frequently used control events in 18th and 19th century music are 
-              slurs. They are encoded as follows:  
-            </p>
+            <p> One of the most prominent and frequently used control events in 18th and 19th
+              century music are slurs. They are encoded as follows: </p>
             <eg>
               <notatedMusic>
                 <ptr target="basic_slur1.mei"/>
                 <desc type="xpath">//*:measure[1]/*:slur</desc>
               </notatedMusic>
             </eg>
-            <p>
-              This example introduces quite a number of important concepts. Let's have a close look: The <att>staff</att>
-              attribute attaches the slur to a specific staff in the score. The assignment to specific notes is dones
-              through the <att>startid</att> and <att>endid</att> attributes. Both attributes use a specific datatype
-              called <soCalled>anyURI</soCalled>, so it's basically a URI as you use your internet browser to point to a 
-              specific webpage. What we see over here is a <soCalled>fragment identifier</soCalled>, as we can see from the 
-              trailing hash symbol (#). The text following this hash refers to an <soCalled>xml:id</soCalled> of an element
-              in the same file. This means we have to look at the encoding of the notes of our example: 
-            </p>
+            <p> This example introduces quite a number of important concepts. Let's have a close
+              look: The <att>staff</att> attribute attaches the slur to a specific staff in the
+              score. The assignment to specific notes is dones through the <att>startid</att> and
+                <att>endid</att> attributes. Both attributes use a specific datatype called
+                <soCalled>anyURI</soCalled>, so it's basically a URI as you use your internet
+              browser to point to a specific webpage. What we see over here is a <soCalled>fragment
+                identifier</soCalled>, as we can see from the trailing hash symbol (#). The text
+              following this hash refers to an <soCalled>xml:id</soCalled> of an element in the same
+              file. This means we have to look at the encoding of the notes of our example: </p>
             <eg>
               <notatedMusic>
                 <ptr target="basic_slur1.mei"/>
                 <desc type="xpath">//*:measure[1]//*:note</desc>
               </notatedMusic>
             </eg>
-            <p>
-              As we can see there, our notes have an additional attribute <att>xml:id</att>. This attribute is actually
-              allowed on every element in MEI. The value must conform to the rules of XML IDs, which basically
-              allows most common ASCII characters, but requires to start with a letter. However, the most important thing 
-              about XML IDs is that they need to be unique within a file, that is, there must not be any other element 
-              with the same value for <att>xml:id</att> in the file. Only by this limitation, XML IDs can serve their purpose,
-              that is, inambiguously identify elements within a file. As a side note, even though
-              we used "note1" and "note2" as XML IDs for this example, we don't actually recommend to use so-called
-              <soCalled>predictable IDs</soCalled>, that is, XML IDs which can be guessed by their position in the 
-              file. As soon as you start to apply modifications to your file, it's quite likely that this will require
-              you to change your IDs, and that this endeavor will lead to inconsistency and problems – believe us, we've 
-              been through this. 
-            </p>
-            <p>
-              Now that we understand the mechanism of <att>xml:id</att> and <soCalled>anyURI</soCalled>, what does it mean?
-              It attaches the two ends of the slur firmly to the notes referenced (just for the record: chords can be equally
-              well referenced). This means that when you change your encoding by adding or deleting notes, moving things around
-              etc., the slur will stay attached to that note, no matter what.  
-            </p>
-            <p>
-              Sometimes, however, you don't want to attach a <soCalled>control event</soCalled> like a slur to a specific note. 
-            </p>
+            <p> As we can see there, our notes have an additional attribute <att>xml:id</att>. This
+              attribute is actually allowed on every element in MEI. The value must conform to the
+              rules of XML IDs, which basically allows most common ASCII characters, but requires to
+              start with a letter. However, the most important thing about XML IDs is that they need
+              to be unique within a file, that is, there must not be any other element with the same
+              value for <att>xml:id</att> in the file. Only by this limitation, XML IDs can serve
+              their purpose, that is, inambiguously identify elements within a file. As a side note,
+              even though we used "note1" and "note2" as XML IDs for this example, we don't actually
+              recommend to use so-called <soCalled>predictable IDs</soCalled>, that is, XML IDs
+              which can be guessed by their position in the file. As soon as you start to apply
+              modifications to your file, it's quite likely that this will require you to change
+              your IDs, and that this endeavor will lead to inconsistency and problems – believe us,
+              we've been through this. </p>
+            <p> Now that we understand the mechanism of <att>xml:id</att> and
+                <soCalled>anyURI</soCalled>, what does it mean? It attaches the two ends of the slur
+              firmly to the notes referenced (just for the record: chords can be equally well
+              referenced). This means that when you change your encoding by adding or deleting
+              notes, moving things around etc., the slur will stay attached to that note, no matter
+              what. </p>
+            <p> Sometimes, however, you don't want to attach a <soCalled>control event</soCalled>
+              like a slur to a specific note. </p>
           </div>
           <div>
             <head>Dynamics of all kinds</head>
-            <p>
-              
-            </p>
+            <p> </p>
           </div>
           <div>
             <head>Other controlEvents</head>
-            <p>
-              
-            </p>
+            <p> </p>
           </div>
         </div>
         <div xml:id="artic" type="chapter">
@@ -276,14 +267,6 @@
         <!-- ******************************************************************** -->
         <!-- CONFORMING CHANGES -->
 
-        <!-- Disallow <annot> as a control event -->
-        <classSpec ident="model.annotLike" module="MEI.shared" type="model" mode="replace">
-          <desc>Groups annotation-like elements.</desc>
-          <classes>
-            <!--<memberOf key="model.controlEventLike"/>-->
-            <memberOf key="model.textPhraseLike.limited"/>
-          </classes>
-        </classSpec>
         <!-- Disallow keySig as an event -->
         <classSpec ident="model.keySigLike" module="MEI.shared" type="model" mode="replace">
           <desc>Groups elements that have the same function as a key signature.</desc>
@@ -298,16 +281,6 @@
           <classes>
             <!--<memberOf key="model.eventLike"/>-->
             <memberOf key="model.staffDefPart"/>
-          </classes>
-        </classSpec>
-        <!-- Disallow scoreDef as an event -->
-        <classSpec ident="model.scoreDefLike" module="MEI.shared" type="model" mode="replace">
-          <desc>Groups elements that provide score meta-information.</desc>
-          <classes>
-            <memberOf key="model.scorePart"/>
-            <memberOf key="model.sectionPart"/>
-            <!--<memberOf key="model.staffPart.mensuralAndNeumes"/>
-            <memberOf key="model.layerPart.mensuralAndNeumes"/>-->
           </classes>
         </classSpec>
 

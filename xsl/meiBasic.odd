@@ -143,7 +143,7 @@
             </eg>
             <p> This example introduces quite a number of important concepts. Let's have a close
               look: The <att>staff</att> attribute attaches the slur to a specific staff in the
-              score. The assignment to specific notes is dones through the <att>startid</att> and
+              score. The assignment to specific notes is done through the <att>startid</att> and
                 <att>endid</att> attributes. Both attributes use a specific datatype called
                 <soCalled>anyURI</soCalled>, so it's basically a URI as you use your internet
               browser to point to a specific webpage. What we see over here is a <soCalled>fragment
